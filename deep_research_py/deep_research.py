@@ -1,11 +1,14 @@
-from typing import List, Dict, TypedDict, Optional
-from dataclasses import dataclass
 import asyncio
-import os
-from ai.providers import openai_client, trim_prompt
-from prompt import system_prompt
 import json
-from search_engine import SearchResponse, SearchEngine, SearchEngineType
+import os
+from dataclasses import dataclass
+from typing import Dict, List, Optional, TypedDict
+
+from ai.providers import openai_client, trim_prompt
+from loguru import logger
+from prompt import system_prompt
+from search_engine import SearchEngine, SearchEngineType, SearchResponse
+
 
 class ResearchResult(TypedDict):
     learnings: List[str]
@@ -119,7 +122,8 @@ async def write_final_report(
         report_language = "English"
     else:
         raise ValueError(f"Invalid report language: {report_language}")
-
+    logger.info(f"Writing final report in {report_language}")
+    
     user_prompt = (
         f"Given the following prompt from the user, write a final report on the topic using "
         f"the learnings from research in {report_language}. Return a JSON object with 'title' and 'reportMarkdown' fields. "

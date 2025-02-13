@@ -284,6 +284,12 @@ def create_ui():
             outputs=[title_out, report_out, learnings_out, sources_out, completion_notice]
         )
         
+        # save report to local
+        os.makedirs("output", exist_ok=True)
+        report_path = os.path.join("output", f"{title_out.value}.md")
+        with open(report_path, "w") as f:
+            f.write(report_out.value)
+        
         download_btn.click(
             fn=lambda report: report,
             inputs=[report_out],
