@@ -108,7 +108,7 @@ async def process_serp_result(
 
 
 async def write_final_report(
-    prompt: str, learnings: List[str], visited_urls: List[str], report_language: str = "en"
+    prompt: str, learnings: List[str], visited_urls: List[str], report_language: str = "zh"
 ) -> str:
     """Generate final report based on all research learnings."""
 
@@ -126,7 +126,8 @@ async def write_final_report(
     
     user_prompt = (
         f"Given the following prompt from the user, write a final report on the topic using "
-        f"the learnings from research in {report_language}. Return a JSON object with 'title' and 'reportMarkdown' fields. "
+        f"the learnings from research in **{report_language}**. "
+        f"Return a JSON object with 'title' and 'reportMarkdown' fields. "
         f"The 'title' should be a concise, descriptive title for the report, and 'reportMarkdown' should "
         f"contain a detailed markdown report (aim for 3+ pages). Include ALL the learnings "
         f"from research:\n\n<prompt>{prompt}</prompt>\n\n"
