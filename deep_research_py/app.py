@@ -304,4 +304,4 @@ def create_ui():
 
 if __name__ == "__main__":
     app = create_ui()
-    app.launch(share=True) 
+    app.launch(share=False) 
