@@ -1,0 +1,9 @@
+firecrawl==1.11.1
+gradio==5.16.0
+loguru==0.7.2
+openai==1.62.0
+prompt_toolkit==3.0.47
+rich==13.9.4
+tavily_python==0.4.0
+tiktoken==0.7.0
+typer==0.15.1
